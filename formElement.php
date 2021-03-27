@@ -11,7 +11,17 @@ class InputText {
   }
   
   public function __toString() {
-    return "<label>$this->texto<br><input type='text' name='$this->nombre' placeholder='$this->etiqueta' required></label><br><br>";
+    return "
+	<div class='row mt-3'>
+	<div class='col-12'>
+	<div class='form-group'>
+<label>$this->texto
+<input type='text' name='$this->nombre' placeholder='$this->etiqueta' class='form-control' required>
+</label>
+</div>
+</div>
+</div>
+";
   }
 
 }
@@ -30,12 +40,21 @@ class InputSelect {
   }
   
   public function __toString() {
-    $select = "<label>$this->texto<select name='$this->nombre'>";
+    $select = "
+	<div class='row mt-3'>
+	<div class='col-12'>
+	<div class='form-group'>
+	<label>$this->texto
+	<select name='$this->nombre' class='form-control'>";
     foreach($this->lista as $a => $b) {
       $b=htmlentities($b);
       $select.="<option value='$b'>$b</option>";
     }
-    $select.="</select></label><br><br>";
+    $select.="</select></label>
+	</div>
+	</div>
+	</div>
+";
     return $select;
   }
 
@@ -55,13 +74,21 @@ class InputRadio {
   }
   
   public function __toString() {
-    $select = "<fieldset>
-    <legend>$this->texto</legend>";
+    $select = "
+	<div class='row mt-3'>
+	<div class='col-12'>
+	<div class='form-group'>
+<fieldset>
+    <legend class='text-center'>$this->texto</legend>";
     foreach($this->lista as $a => $b) {
       $b=htmlentities($b);
-      $select.="<label><input type='radio' name='$this->nombre' value='$b' />$b</label><br>";
+      $select.="<label><input type='radio' name='$this->nombre' value='$b' class='form-control' />$b</label><br>";
     }
-    $select.="</fieldset><br>";
+    $select.="</fieldset>
+	</div>
+	</div>
+	</div>
+";
     return $select;
   }
 

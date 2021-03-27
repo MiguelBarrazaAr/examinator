@@ -51,7 +51,15 @@ class Cuestionario {
   
   public function form() {
     $form = "<section id='form'>";
-    $form.="<h1>$this->consigna_titulo</h1>$this->consigna_texto<br><br>";
+    $form.="
+<div class='row'>
+	<div class='col-12'>
+		<h1 class='text-center'>$this->consigna_titulo</h1>
+		<p class'text-primary'>$this->consigna_texto</p>
+		<hr/>
+	</div>
+</div>
+";
     $form.="<form method='post'>";
     
     // agregamos campos:
@@ -59,7 +67,13 @@ class Cuestionario {
       $form.=$q;
     }
     
-    $form.="<input type='submit' value='$this->boton'></form>";
+    $form.="
+<div class='row mt-3'>
+	<div class='col-12 text-center'>
+		<input type='submit' class='btn' value='$this->boton'></form>
+	</div>
+</div>
+";
     $form.="</section>";
     return $form;
   }

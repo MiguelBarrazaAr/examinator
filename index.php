@@ -29,7 +29,7 @@ $q->seleccionar("lang", "Seleccione el codigo correcto para prefijar el idioma a
 $q->escribir("enlace", "escriba el código para realizar un enlace que vaya al archivo contacto.html y que muestre como texto: contactame",
   '<a href="contacto.html">contactame</a>', "Se esperaba que el código del enlace sea este");
 
-$q->seleccionar("encoding", "seleccione cual es la codificación recomendada para usar en tus documentos html",
+$q->lista("encoding", "seleccione cual es la codificación recomendada para usar en tus documentos html",
   ["ANSI", "UNICODE", "UTF-8", "Eso no importa, cualquiera sirve para el español"],
   "UTF-8", "Para páginas en español, la codificación recomendada es UTF-8");
 
