@@ -84,13 +84,26 @@ class Cuestionario {
       $c($this);
     }
     
-    $result="<p>tuviste $this->respuestas de $this->preguntas respuestas correctas.<br><br>";
+    $result="
+<div class='row'>
+	<div class='col-12'>
+<p class='text-primary text-center'>tuviste $this->respuestas de $this->preguntas respuestas correctas.</p><br><br>";
+
     if($this->errores) {
       $result.=$this->listaDeErrores()."<br>";
     } else {
-        $result.="Felicitaciones!: todas tus respuestas fueron correctas.<br><br>";
-    }
-    $result.="<hr><footer><p>Sistema evaluativo desarrollado por Miguel Barraza</p></footer>";
+        $result.="Felicitaciones!: todas tus respuestas fueron correctas";
+	}
+	
+$result.="</div>
+</div>";
+
+    $result.="<div class='row mt-4'>
+	<div class='col-12'>
+<hr>
+<footer><p>Sistema evaluativo desarrollado por Miguel Barraza</p></footer>
+</div>
+</div>";
     
     // guardamos reporte:
     if($this->reporte) {
