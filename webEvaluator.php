@@ -24,16 +24,27 @@ class Cuestionario {
     $web = "
 <!DOCTYPE html>
 <html lang='es'>
-<title>$this->titulo</title>
-<link rel='stylesheet' type='text/css' href='estilos.css'>
+<head>
+	<meta charset='UTF-8'>
+	<title>$this->titulo</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
 </head>
-<body>";
+<body>
+	<div class='container'>
+";
     if($_POST) {
       $web.=$this->result();
     } else {
       $web.=$this->form();
     }
-    $web.="</body>
+    $web.="
+	</div>
+	
+	<script src='js/jquery-3.2.1.slim.min.js'></script>
+	<script src='js/popper.min.js'></script>
+	<script src='js/bootstrap.min.js'></script>
+</body>
     </html>";
     echo $web;
   }
